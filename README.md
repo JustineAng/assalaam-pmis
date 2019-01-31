@@ -1,4 +1,4 @@
-# RetailStore
+# Assalaam Hypermarket Product and Member Information System
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
