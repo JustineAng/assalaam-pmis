@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
 
     if (event.key === 'Enter') {
       if (BARCODE_REGEX.test(event.target.value)) {
-        //
         return this.product.getProductInfo(event.target.value)
                ? this.router.navigateByUrl('/product').then(e => {
                  if (e) {

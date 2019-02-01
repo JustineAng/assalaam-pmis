@@ -13,26 +13,27 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-5"><h5 class="font-weight-bold">Product Barcode:</h5></div>
-          <div class="col-7">{{ productBarcode }}</div>
+          <div class="col-5"><h5 class="font-weight-bold">Product Code:</h5></div>
+          <div class="col-7">{{ product.product_code }}</div>
         </div>
 
         <div class="row">
           <div class="col-5"><h5 class="font-weight-bold">Product Name:</h5></div>
-          <div class="col-7">{{ productName }}</div>
+          <div class="col-7"><h5>{{ product.product_name }}</h5></div>
         </div>        
 
         <div class="row mb-3">
           <div class="col-5"><h5 class="font-weight-bold">Unit of Measurement:</h5></div>
-          <div class="col-7">{{ unitOfMeasurement }}</div>
+          <div class="col-7">{{ product.product_uom }}</div>
         </div>
 
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-3"><h1 class="font-weight-bold">Price:</h1></div>
-          <div class="col-9"><h1 class="font-weight-bold">Rp {{ priceInRupiah }}</h1></div>
+          <div class="col-9"><h1 class="font-weight-bold">Rp {{ product.product_price }}</h1></div>
         </div>
 
         <div class="row">
+
           <table class="table table-sm small">
             <thead>
               <tr>
@@ -43,10 +44,10 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>CARTON</td>
-                <td>24</td>
-                <td>Rp 229, 775.462</td>
+              <tr *ngFor="let uom of product.uoms">
+                <td>{{ uom.uom }}</td>
+                <td>{{ uom.conversion }}</td>
+                <td>Rp {{ uom.price }}</td>
               </tr>
             </tbody>
           </table>

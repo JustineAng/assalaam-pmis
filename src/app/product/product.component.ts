@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { Product, ProductService } from '../product.service';
+import { Product, DataService } from '../data.service';
 
 @Component({
   selector: 'app-product',
@@ -7,14 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  productBarcode: string = '';
-  productName: string = '';
-  unitOfMeasurement: string = '';
-  priceInRupiah: string = '0.000';
+  // productBarcode: string = '';
+  // productName: string = '';
+  // unitOfMeasurement: string = '';
+  // priceInRupiah: string = '0.000';
+  product: Product;
 
-  constructor() { }
+  constructor(data: DataService)  {
+    this.product = data.product;
+    // console.log('product :' + data.product.product_name);
+    // console.log('product:');
+    console.log(this.product);
+  }
 
   ngOnInit() {
   }
-
 }
