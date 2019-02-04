@@ -5,9 +5,12 @@
     
     <div class="col-12 col-md-4">
 
-      <img class="img-thumbnail" src="assets/img/products/145814.jpg" alt="Futami Green Tea" with="100%">
+      <!-- <img class="img-thumbnail" src="assets/img/products/145814.jpg" alt="Futami Green Tea" with="100%"> -->
+      <img class="img-thumbnail" src="assets/img/products/{{ product.product_code }}.jpg"
+      onError="this.src='assets/img/products/0.jpg';"  alt="..." />
 
     </div>
+
     <div class="col-12 col-md-8">
 
       <div class="container-fluid">
@@ -35,7 +38,7 @@
         <div class="row">
 
           <table class="table table-sm small">
-            <thead>
+            <thead class="thead-green">
               <tr>
                 <th>UOM</th>
                 <th># of Piece</th>
@@ -59,5 +62,33 @@
   
   </div>
 
-  <div class="row"></div>
+  <div class="row mt-4">
+    <div class="container-fluid">
+      <h3>Product Discount</h3>
+
+      <hr>
+
+      <table class="table table-sm small">
+        <thead class="thead-green">
+          <tr>
+            <th>Barcode</th>
+            <th>UOM</th>
+            <th>Qty. From</th>
+            <th>Qty. To</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let discount of product.disc_by_qty">
+            <td>{{ discount.barcode }}</td>
+            <td>{{ discount.uom }}</td>
+            <td>{{ discount.qty_from }}</td>
+            <td>{{ discount.qty_to }}</td>
+            <td>Rp {{ discount.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

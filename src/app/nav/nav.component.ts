@@ -10,49 +10,48 @@ import { DataService } from '../data.service';
 })
 export class NavComponent implements OnInit {
 
+  /**
+   * Contains the application that is shown on the navigation bar
+   * of the application as Navigation Brand.
+   *
+   * @var string
+   */
   appTitle: string = 'ASSALAAM HYPERMARKET';
+
+  /**
+   * NavComponent class constructor.
+   *
+   * @param router Provides the navigation and url manipulation capabilities.
+   * @param route Contains the information about a route associated with the component.
+   * @param data Provides the information for the product or member.
+   */
   constructor(private router: Router,
               private route: ActivatedRoute,
               private data: DataService) { }
 
   ngOnInit() { }
 
+  /**
+   * Search Input Code
+   *
+   * Search for product or member from the database and display it to
+   * the customer. This method is triggered by default everytime the
+   * return key is pressed on the input textbox.
+   *
+   * @param event an event that triggers the calling of this method.
+   */
   searchInputCode(event: any) {
+    /*
+     | Barcode Regex
+     |
+     | Ensures that the barcode we are scanning is only numeric charcaters
+     | with no limit on its length.
+     */
     const BARCODE_REGEX: RegExp = /[0-9]\d*/g;
-
-    console.log('Pressed Key: ' + event.key);
 
     if (event.key === 'Enter') {
       if (BARCODE_REGEX.test(event.target.value)) {
-
-        this.data.getProductInfo(event.target.value)
-        ? this.router.navigateByUrl('/product/' + event.target.value).then(e => {
-            if (e) {
-              console.log('Successfully routed to the product component.');
-            } else {
-              console.log('Routing to product component fails.');
-            }
-          })
-        : this.data.getMemberInfo();
-
-        // if (this.data.getProductInfo(event.target.value)) {
-        //   this.router.navigateByUrl('/product/' + event.target.value).then(e => {
-        //     if (e) {
-        //       console.log('Successfully routed to the product component.');
-        //     } else {
-        //       console.log('Routing to product component fails.');
-        //     }
-        //   });
-        // } else {
-        //   this.router.navigateByUrl('/member/' + event.target.value).then(e => {
-        //     if (e) {
-        //       console.log('Successfully routed to the member component.');
-        //     } else {
-        //       console.log('Routing to member component fails.');
-        //     }
-        //   });
-        // }
-
+        this.router.navigateByUrl('/product/' + event.target.value);
         event.target.value = '';
       }
     }

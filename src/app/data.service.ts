@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Routes, ActivatedRoute } from '@angular/router/';
 import { formatNumber } from '@angular/common';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 
 @Injectable({
   providedIn: 'root'
@@ -26,25 +27,25 @@ export class DataService {
    * @returns instance of `Product Class`.
    */
   getProductInfo(barcode: string): Product {
+    this.product = null;
     const API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetProduct/';
 
     this.http.get(API_URL + barcode).subscribe(json => {
-      this.product = <Product>json;
-    });
-
-    // this.product.uoms.forEach(function(element) {
-    //   if (element.barcode === barcode) {
-    //     this.product_uom = element.barcode;
-    //     this.product_price = element.price;
-    //   }
-
-    //   console.log(element);
-    // });
-
+        console.log(<Product>json);
+        this.product = <Product>json;
+      },
+      error => {
+        console.log(error);
+        // return null;
+      }
+    );
+    // console.log('return null');
     return this.product;
   }
 
-  getMemberInfo() { }
+  getMemberInfo() {
+    // this.http.get
+  }
 }
 
 interface IUom {
@@ -70,7 +71,8 @@ export class Product implements IProduct {
   product_code: string;
   product_name: string;
   product_uom: string;
-  product_price: string;
+  product_price: number;
+  prodcut_image: string;
   uoms: Array<IUom>;
   disc_by_qty: Array<IDiscByQty>;
 }
