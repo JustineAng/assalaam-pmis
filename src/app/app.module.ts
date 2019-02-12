@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Directive } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductComponent } from './product/product.component';
 import { MemberComponent } from './member/member.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MemberComponent } from './member/member.component';
     AboutComponent,
     ContactComponent,
     ProductComponent,
-    MemberComponent
+    MemberComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
