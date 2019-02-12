@@ -1,3 +1,78 @@
-<p>
-  member works!
-</p>
+<section class="container-fluid h-100">
+    <div class="row h-100">
+      <aside class="col-12 col-md-4 px-0 px-md-2 py-3 bg-primary text-white">
+        <!-- Site Brand -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-2">
+              <img src="assets/img/sample-logo.png" alt="Assalaam Hypermarket Logo" width="64px" height="64px">
+            </div>
+    
+            <div class="col ml-2">
+              <h5 class="d-inline m-0">ASSALAAM HYPERMARKET</h5>
+              <p class="tagline">FOR YOU, WE EXIST</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Member Photo -->
+        <img class="mx-auto d-block mt-4 mb-3 img-thumbnail rounded-circle" src="assets/img/members/img_avatar.png"
+        onError="this.src='assets/img/members/img_avatar.png';"  alt="Member Image" width="50%" />
+        
+        <h3 class="text-center text-uppercase m-0 font-weight-bold">{{ member.name }}</h3>
+        <small class="d-block text-center mb-2">Name</small>
+
+        <h5 class="d-block text-center mb-0">{{ member.card_no }}</h5>
+        <small class="d-block text-center mb-2">Card No.</small>
+
+        <!-- Member Info -->
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-12">
+              <p class="mb-0">Identity No.</p>
+              <h4>{{ member.identity_no }}</h4>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12">
+              <p class="mb-0">Member Type</p>
+              <h4>{{ member.member_type }}</h4>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12">
+              <p class="mb-0">Phone</p>
+              <h4>{{ member.phone }}</h4>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12">
+              <p class="mb-0">Address</p>
+              <h4>{{ member.address }}</h4>
+            </div>
+          </div>
+        </div>
+      </aside>
+  
+      <div class="col py-3">
+        <!-- Header -->
+        <app-nav></app-nav>
+
+        <!-- Member Points -->
+        <div class="py-4">
+          <h1 class="display-1 text-center text-primary mb-0">{{ member.point }} PTS</h1>
+          <p class="lead text-center text-primary mt-0">EXP: {{ member.point_valid_until | date:'MMMM dd, yyyy' }}</p>
+        </div>
+
+        <hr />
+
+        <!-- Member Points -->
+        <div class="py-4">
+          <h1 class="display-1 text-center text-primary mb-0">{{ member.coupon }} CPN</h1>
+        </div>
+      </div>
+    </div>
+  </section>

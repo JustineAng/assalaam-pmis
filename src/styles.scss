@@ -1,29 +1,46 @@
 @import "./assets/css/bootstrap-4.2.0/scss/bootstrap.scss";
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 html, body {
-    height: 100%;
-    margin: 0 auto;
+  height: 100vh !important;
+  margin: 0 auto;
 }
 
 body {
-    font-family: 'Montserrat';
+  font-family: 'Roboto';
 }
 
-section {
-    width: 80%;
-    margin: 0 auto;
-    padding: 1.5em;
+// section {
+//   width: 80%;
+//   margin: 0 auto;
+//   padding: 1.5em;
+// }
+
+// .container {
+//   width: 80%;
+//   margin: 0 auto;
+//   padding: 1.3em;
+//   display: grid;
+//   grid-template-columns: 30% auto;
+
+//   a {
+//     color: #fff;
+//   }
+// }
+
+.thead-green {
+  background: #44bd32;
+  color: #fff;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 1.3em;
-    display: grid;
-    grid-template-columns: 30% auto;
+h-lead, h2.h-lead {
+  font-weight: 300!important;
+}
 
-    a {
-        color: #fff;
-    }
+.tagline {
+  font-size: 1.10rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: .10rem;
+  word-spacing: .20rem
 }

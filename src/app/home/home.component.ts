@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ProductService } from '../product.service';
 import { MemberService } from '../member.service';
+import { AboutComponent } from '../about/about.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.router.navigate(['product']);
   }
 
   searchInputCode(event: any) {
@@ -26,7 +28,6 @@ export class HomeComponent implements OnInit {
 
     if (event.key === 'Enter') {
       if (BARCODE_REGEX.test(event.target.value)) {
-        //
         return this.product.getProductInfo(event.target.value)
                ? this.router.navigateByUrl('/product').then(e => {
                  if (e) {

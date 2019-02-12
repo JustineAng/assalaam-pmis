@@ -1,62 +1,110 @@
-<div class="container-fluid">
-  
-  
-  <div class="row">
-    
-    <div class="col-12 col-md-4">
-
-      <img class="img-thumbnail" src="assets/img/products/145814.jpg" alt="Futami Green Tea" with="100%">
-
-    </div>
-    <div class="col-12 col-md-8">
-
+<section class="container-fluid h-100">
+  <div class="row h-100">
+    <aside class="col-12 col-md-4 px-0 px-md-2 py-3 bg-primary text-white">
       <div class="container-fluid">
-
         <div class="row">
-          <div class="col-5"><h5 class="font-weight-bold">Product Barcode:</h5></div>
-          <div class="col-7">{{ productBarcode }}</div>
+          <div class="col-2">
+            <img src="assets/img/sample-logo.png" alt="Assalaam Hypermarket Logo" width="64px" height="64px">
+          </div>
+  
+          <div class="col ml-2">
+            <h5 class="d-inline m-0">ASSALAAM HYPERMARKET</h5>
+            <p class="tagline">FOR YOU, WE EXIST</p>
+          </div>
         </div>
-
-        <div class="row">
-          <div class="col-5"><h5 class="font-weight-bold">Product Name:</h5></div>
-          <div class="col-7">{{ productName }}</div>
-        </div>        
-
-        <div class="row mb-3">
-          <div class="col-5"><h5 class="font-weight-bold">Unit of Measurement:</h5></div>
-          <div class="col-7">{{ unitOfMeasurement }}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-3"><h1 class="font-weight-bold">Price:</h1></div>
-          <div class="col-9"><h1 class="font-weight-bold">Rp {{ priceInRupiah }}</h1></div>
-        </div>
-
-        <div class="row">
-          <table class="table table-sm small">
-            <thead>
-              <tr>
-                <th>UOM</th>
-                <th># of Piece</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>CARTON</td>
-                <td>24</td>
-                <td>Rp 229, 775.462</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
       </div>
 
-    </div>
+      <img class="mx-auto d-block mt-4 mb-3 img-thumbnail rounded-circle" src="assets/img/products/{{ product.product_code }}.jpg"
+      onError="this.src='assets/img/products/0.jpg';"  alt="Product Image" width="50%" />
   
-  </div>
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-12">
+            <p class="mb-0">CODE</p>
+            <h4>{{ product.product_code }}</h4>
+          </div>
+        </div>
+    
+        <div class="row mb-2">
+          <div class="col-12">
+            <p class="mb-0">NAME</p>
+            <h4>{{ product.product_name }}</h4>
+          </div>
+        </div>
+    
+        <div class="row mb-3">
+          <div class="col-12">
+            <p class="mb-0">UNIT OF MEASUREMENT</p>
+            <h4>{{ product.product_uom }}</h4>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-12">
+            <h2 class="h-lead mb-0">PRICE</h2>
+            <h1 class="display-5">{{ product.product_price | currency:'IDR ':'symbol':'1.0-0' }}</h1>
+          </div>
+        </div>
+      </div>
+    </aside>
 
-  <div class="row"></div>
-</div>
+    <div class="col py-3">
+      <!-- Header -->
+      <app-nav></app-nav>
+
+      <h2 class="text-secondary font-weight-bold">PROMO</h2>
+
+      <div class="alert alert-primary text-center" *ngFor="let promo of product.promo_info" role="alert">
+        <h5 class="m-0">{{ promo.info }}</h5>
+      </div>
+
+      <hr>
+
+      <!-- Unit of Measurement -->
+      <h5 class="font-weight-bold text-secondary mt-4 mb-2">UNIT OF MEASUREMENT</h5>
+      <table class="table">
+        <thead class="thead-green">
+          <tr>
+            <th>UOM</th>
+            <th>Conversion</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let uom of product.uoms">
+            <td>{{ uom.uom }}</td>
+            <td>{{ uom.conversion }} {{ product.product_minuom }}</td>
+            <td>{{ uom.price | currency:'IDR ':'symbol':'1.0-0' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <!-- Discounts -->
+      <h5 class="font-weight-bold text-secondary mt-4 mb-2">PRODUCT DISCOUNT</h5>
+      <table class="table">
+        <thead class="thead-green">
+          <tr>
+            <th class="d-none d-md-table-cell">Barcode</th>
+            <th>UOM</th>
+            <th>Qty. From</th>
+            <th>Qty. To</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let discount of product.disc_by_qty">
+            <td class="d-none d-md-table-cell">{{ discount.barcode }}</td>
+            <td>{{ discount.uom }}</td>
+            <td>{{ discount.qty_from }}</td>
+            <td>{{ discount.qty_to }}</td>
+            <td>{{ discount.price | currency:'IDR ':'symbol':'1.0-0' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

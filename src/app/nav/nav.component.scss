@@ -1,18 +1,5 @@
-.bg-navbar {
-    background: #44bd32;
-}
-
 .navbar-brand {
     font-weight: 700;
-}
-
-.navbar, .navbar-nav {
-    margin: 0;
-    padding: 0.5em 0;
-}
-
-.container {
-    padding: 0 1.3em;
 }
 
 ul.navbar-nav {
@@ -33,4 +20,8 @@ ul.navbar-nav {
             }
         }
     }
+}
+
+.image-upload > input {
+    display: none;
 }
