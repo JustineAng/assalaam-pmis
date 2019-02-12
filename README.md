@@ -1,5 +1,7 @@
 # Assalaam Hypermarket Product and Member Information System
 
+[![Coverage Status](https://coveralls.io/repos/github/JustineAng/assalaam-pmis/badge.svg?branch=master)](https://coveralls.io/github/JustineAng/assalaam-pmis?branch=master)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server
