@@ -43,7 +43,7 @@ export class MemberComponent implements OnInit {
 
           setTimeout(() => {
             this.router.navigate(['']);
-          }, 30000); // display for 30 seconds
+          }, 10000); // display for 30 seconds
         }
 
       },

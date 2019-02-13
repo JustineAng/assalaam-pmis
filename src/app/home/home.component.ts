@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.router.navigate(['product']);
+    // this.router.navigate(['product']);
   }
 
   searchInputCode(event: any) {
