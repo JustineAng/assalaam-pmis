@@ -1,19 +1,10 @@
 <section class="container-fluid h-100">
   <div class="row h-100">
-    <aside class="col-12 col-md-4 px-0 px-md-2 py-3 bg-primary text-white">
-      <!-- <div class="container-fluid">
-        <div class="row">
-          <div class="col-2">
-            <img src="assets/img/sample-logo.png" alt="Assalaam Hypermarket Logo" width="64px" height="64px">
-          </div>
-  
-          <div class="col ml-2 mt-2">
-            <h5 class="d-inline m-0 font-weight-bold">ASSALAAM HYPERMARKET</h5>
-            <p class="tagline">UNTUK ANDA, KAMI ADA...</p>
-          </div>
-        </div>
-      </div> -->
+    <div *ngIf="mobile" class="px-3 w-100">
+      <app-nav></app-nav>
+    </div>
 
+    <aside class="col-12 col-md-4 px-0 px-md-2 py-3 bg-primary text-white">
       <img class="mx-auto d-block mt-4 mb-3 img-thumbnail rounded-circle" src="assets/img/products/{{ product.product_code }}.jpg"
       onError="this.src='assets/img/products/0.jpg';"  alt="Product Image" width="60%" />
   
@@ -50,7 +41,7 @@
 
     <div class="col py-3">
       <!-- Header -->
-      <app-nav></app-nav>
+      <app-nav *ngIf="!mobile"></app-nav>
 
       <h2 class="text-secondary font-weight-bold">PROMO</h2>
 

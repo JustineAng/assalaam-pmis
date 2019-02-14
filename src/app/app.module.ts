@@ -3,6 +3,8 @@ import { NgModule, Directive } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CountdownModule } from 'ngx-countdown';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
@@ -11,6 +13,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ProductComponent } from './product/product.component';
 import { MemberComponent } from './member/member.component';
 import { AutofocusDirective } from './autofocus.directive';
+import { TimerDirective } from './timer.directive';
+import { MissingComponent } from './missing/missing.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +25,15 @@ import { AutofocusDirective } from './autofocus.directive';
     ContactComponent,
     ProductComponent,
     MemberComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    TimerDirective,
+    MissingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

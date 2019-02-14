@@ -1,5 +1,9 @@
 <section class="container-fluid h-100">
     <div class="row h-100">
+      <div *ngIf="mobile" class="px-3 w-100">
+        <app-nav></app-nav>
+      </div>
+
       <aside class="col-12 col-md-4 px-0 px-md-2 py-3 bg-primary text-white">
         <!-- Site Brand -->
         <!-- <div class="container-fluid">
@@ -59,7 +63,7 @@
   
       <div class="col py-3">
         <!-- Header -->
-        <app-nav></app-nav>
+        <app-nav *ngIf="!mobile"></app-nav>
 
         <!-- Member Points -->
         <div class="py-4">
@@ -71,7 +75,11 @@
 
         <!-- Member Points -->
         <div class="py-4">
-          <h1 class="display-1 text-center text-primary mb-0">{{ member.coupon }} COUPON</h1>
+          <h1 class="display-1 text-center text-primary mb-0">{{ member.coupon }} COUPONS</h1>
+        </div>
+
+        <div *ngIf="!mobile" id="snackbar" class="show">
+          <h4><countdown [config]="{leftTime: 10}">This Information will Disappear in: <span class="text-danger">$!s!</span> seconds</countdown></h4>
         </div>
       </div>
     </div>
