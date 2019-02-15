@@ -52,9 +52,15 @@ export class ProductComponent implements OnInit {
           // this.data.getInformationById(this.barcode);
 
           // Display product information for 30 seconds
+
+          // set the timeout before we direct it to the home component.
+          this.data.timeOut = 30000;
+
+          // clear out the previous timeout id so we don't use it.
+          clearTimeout(this.data.timeOutID);
           setTimeout(() => {
             this.router.navigate(['']);
-          }, 30000);
+          }, this.data.timeOut);
         }
       });
     } else {

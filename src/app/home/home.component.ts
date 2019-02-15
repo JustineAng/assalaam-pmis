@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { MemberService } from '../member.service';
 import { AboutComponent } from '../about/about.component';
+import * as fs from 'file-system';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,22 @@ import { AboutComponent } from '../about/about.component';
 })
 export class HomeComponent implements OnInit {
 
+  private assetsFolder = '../assets/img/promos';
+  promoImageArray: any;
+
   constructor(private product: ProductService,
               private member: MemberService,
               private router: Router) { }
 
   ngOnInit() {
     // this.router.navigate(['product']);
+    // const fileSystem = require('file-system');
+
+    // fs.readdir(this.assetsFolder, (error, files) => {
+    //   files.forEach(file => {
+    //     this.promoImageArray.push(file);
+    //   });
+    // });
   }
 
   searchInputCode(event: any) {

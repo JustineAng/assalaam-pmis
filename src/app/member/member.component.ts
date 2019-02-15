@@ -31,6 +31,16 @@ export class MemberComponent implements OnInit {
       // then this.product = <Product> the PARAM
       // else
       this.loadMember(); // it works if we directly use the url
+
+      // set the timeout before we direct it to the home component.
+      this.data.timeOut = 10000;
+
+      // clear out the previous timeout id so we don't use it.
+      clearTimeout(this.data.timeOutID);
+
+      this.data.timeOutID = setTimeout(() => {
+        this.router.navigate(['']);
+      }, this.data.timeOut);
     });
   }
 
@@ -45,11 +55,6 @@ export class MemberComponent implements OnInit {
           // this.router.navigateByUrl('/member/' + this.barcode);
         } else {
           this.member = <Member>json;
-
-
-          setTimeout(() => {
-            this.router.navigate(['']);
-          }, 10000);
         }
 
       },
