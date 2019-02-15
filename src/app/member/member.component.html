@@ -20,20 +20,20 @@
         </div> -->
   
         <!-- Member Photo -->
-        <img class="mx-auto d-block mt-4 mb-3 img-thumbnail rounded-circle" src="assets/img/members/img_avatar.png"
-        onError="this.src='assets/img/members/img_avatar.png';"  alt="Member Image" width="50%" />
+        <img class="mx-auto d-block mt-4 mb-3 img-thumbnail rounded-circle" src="assets/img/members/{{ member.card_no }}.png"
+        onError="this.src='assets/img/members/default.png';"  alt="Member Image" width="50%" />
         
         <h3 class="text-center text-uppercase m-0 font-weight-bold">{{ member.name }}</h3>
-        <small class="d-block text-center mb-2">Name</small>
+        <small class="d-block text-center mb-2">Nama</small>
 
         <h5 class="d-block text-center mb-0">{{ member.card_no }}</h5>
-        <small class="d-block text-center mb-2">Card No.</small>
+        <small class="d-block text-center mb-2">Nomor Kartu</small>
 
         <!-- Member Info -->
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-12">
-              <p class="mb-0">Identity No.</p>
+              <p class="mb-0">Nomor Identitas</p>
               <h4>{{ member.identity_no }}</h4>
               <h4 *ngIf="!member.identity_no">N/A</h4>
             </div>
@@ -41,14 +41,14 @@
 
           <div class="row mb-2">
             <div class="col-12">
-              <p class="mb-0">Member Type</p>
+              <p class="mb-0">Jenis Anggota</p>
               <h4>{{ member.member_type }}</h4>
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col-12">
-              <p class="mb-0">Phone</p>
+              <p class="mb-0">Telepon</p>
               <h4>{{ member.phone }}</h4>
               <h4 *ngIf="!member.phone">N/A</h4>
             </div>
@@ -56,7 +56,7 @@
 
           <div class="row mb-2">
             <div class="col-12">
-              <p class="mb-0">Address</p>
+              <p class="mb-0">Alamat</p>
               <h4>{{ member.address }}</h4>
               <h4 *ngIf="!member.address">N/A</h4>
             </div>
@@ -82,7 +82,7 @@
         </div>
 
         <div *ngIf="!mobile" id="snackbar" class="show">
-          <h4 class="m-0"><countdown [config]="{leftTime: 10}">This Information will Disappear in: <span class="text-danger">$!s!</span> seconds</countdown></h4>
+          <h4 class="m-0"><countdown [config]="{leftTime: 10}">Informasi ini akan Hilang dalam: <span class="text-danger">$!s!</span> detik...</countdown></h4>
         </div>
       </div>
     </div>
