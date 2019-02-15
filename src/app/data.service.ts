@@ -31,6 +31,7 @@ export class Product implements ProductAPIModel.IProduct {
   product_price: number;
   prodcut_image: string;
   product_minuom: string;
+  sproduct_conversion: number;
 
   product_name: string;
   uoms: Array<ProductAPIModel.IUom>;

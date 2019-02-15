@@ -110,6 +110,7 @@ export class ProductComponent implements OnInit {
             if (element.barcode === this.barcode) {
               this.product.product_price = element.price;
               this.product.product_uom = element.uom;
+              this.product.sproduct_conversion = element.conversion;
 
               // Remove the scanned UOM from the UOMs object array.
               this.product.uoms.splice(this.product.uoms.indexOf(element), 1);

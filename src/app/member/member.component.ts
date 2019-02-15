@@ -32,11 +32,11 @@ export class MemberComponent implements OnInit {
       // else
       this.loadMember(); // it works if we directly use the url
 
-      // set the timeout before we direct it to the home component.
-      this.data.timeOut = 10000;
-
       // clear out the previous timeout id so we don't use it.
       clearTimeout(this.data.timeOutID);
+
+      // set the timeout before we direct it to the home component.
+      this.data.timeOut = 10000;
 
       this.data.timeOutID = setTimeout(() => {
         this.router.navigate(['']);

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Directive } from '@angular/core';
+import { LOCALE_ID, NgModule, Directive } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeId from '@angular/common/locales/id';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CountdownModule } from 'ngx-countdown';
@@ -15,6 +17,8 @@ import { MemberComponent } from './member/member.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { TimerDirective } from './timer.directive';
 import { MissingComponent } from './missing/missing.component';
+
+registerLocaleData(localeId, 'id');
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import { MissingComponent } from './missing/missing.component';
     HttpClientModule,
     CountdownModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'id' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
