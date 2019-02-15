@@ -15,6 +15,9 @@ export class DataService {
   public product: Product;
   public member: Member;
 
+  public timeOut: number = 0;
+  public timeOutID: any;
+
   public PRODUCT_API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetProduct/';
   public MEMBER_API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetMember/';
 

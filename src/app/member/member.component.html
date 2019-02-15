@@ -1,19 +1,23 @@
 <section class="container-fluid h-100">
     <div class="row h-100">
+      <div *ngIf="mobile" class="px-3 w-100">
+        <app-nav></app-nav>
+      </div>
+
       <aside class="col-12 col-md-4 px-0 px-md-2 py-3 bg-primary text-white">
         <!-- Site Brand -->
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
           <div class="row">
             <div class="col-2">
-              <img src="assets/img/sample-logo.png" alt="Assalaam Hypermarket Logo" width="64px" height="64px">
+              <img src="assets/img/assalam-logo.png" alt="Assalaam Hypermarket Logo" width="64px" height="64px">
             </div>
     
-            <div class="col ml-2">
-              <h5 class="d-inline m-0">ASSALAAM HYPERMARKET</h5>
-              <p class="tagline">FOR YOU, WE EXIST</p>
+            <div class="col ml-2 mt-2">
+              <h5 class="d-inline m-0 font-weight-bold">ASSALAAM HYPERMARKET</h5>
+              <p class="tagline">UNTUK ANDA, KAMI ADA...</p>
             </div>
           </div>
-        </div>
+        </div> -->
   
         <!-- Member Photo -->
         <img class="mx-auto d-block mt-4 mb-3 img-thumbnail rounded-circle" src="assets/img/members/img_avatar.png"
@@ -59,11 +63,11 @@
   
       <div class="col py-3">
         <!-- Header -->
-        <app-nav></app-nav>
+        <app-nav *ngIf="!mobile"></app-nav>
 
         <!-- Member Points -->
         <div class="py-4">
-          <h1 class="display-1 text-center text-primary mb-0">{{ member.point }} PTS</h1>
+          <h1 class="display-1 text-center text-primary mb-0">{{ member.point }} POINTS</h1>
           <p class="lead text-center text-primary mt-0">EXP: {{ member.point_valid_until | date:'MMMM dd, yyyy' }}</p>
         </div>
 
@@ -71,7 +75,11 @@
 
         <!-- Member Points -->
         <div class="py-4">
-          <h1 class="display-1 text-center text-primary mb-0">{{ member.coupon }} CPN</h1>
+          <h1 class="display-1 text-center text-primary mb-0">{{ member.coupon }} COUPONS</h1>
+        </div>
+
+        <div *ngIf="!mobile" id="snackbar" class="show">
+          <h4><countdown [config]="{leftTime: 10}">This Information will Disappear in: <span class="text-danger">$!s!</span> seconds</countdown></h4>
         </div>
       </div>
     </div>

@@ -77,6 +77,7 @@ export class NavComponent implements OnInit {
       if (json === null) {
         // navigate to not found page
         console.log('not found');
+        this.router.navigate(['missing']);
       } else {
         this.router.navigateByUrl('/member/' + barcode); // temporary
       }

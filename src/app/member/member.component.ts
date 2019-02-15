@@ -12,6 +12,7 @@ export class MemberComponent implements OnInit {
 
   member: Member;
   barcode: string;
+  mobile: boolean = false;
   API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetMember/';
 
   constructor(private router: Router, private data: DataService, private route: ActivatedRoute, private http: HttpClient) {
@@ -19,6 +20,10 @@ export class MemberComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
+
     this.route.params.subscribe(params => {
       this.barcode = params['id'];
 
@@ -26,6 +31,16 @@ export class MemberComponent implements OnInit {
       // then this.product = <Product> the PARAM
       // else
       this.loadMember(); // it works if we directly use the url
+
+      // set the timeout before we direct it to the home component.
+      this.data.timeOut = 10000;
+
+      // clear out the previous timeout id so we don't use it.
+      clearTimeout(this.data.timeOutID);
+
+      this.data.timeOutID = setTimeout(() => {
+        this.router.navigate(['']);
+      }, this.data.timeOut);
     });
   }
 
@@ -40,10 +55,6 @@ export class MemberComponent implements OnInit {
           // this.router.navigateByUrl('/member/' + this.barcode);
         } else {
           this.member = <Member>json;
-
-          setTimeout(() => {
-            this.router.navigate(['']);
-          }, 30000); // display for 30 seconds
         }
 
       },

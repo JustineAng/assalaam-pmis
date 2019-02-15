@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   product: Product;
   _json: any;
   barcode: string;
+  mobile: boolean = false;
   API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetProduct/';
 
   constructor(private router: Router, private data: DataService, private route: ActivatedRoute, private http: HttpClient)  {
@@ -27,13 +28,17 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
+
     // this code if you scan your barcode
     this.route.data.subscribe(result => {
       this._json = result.json;
     });
 
     if (this._json == null) {
-      // this code if you direct use url link 
+      // this code if you direct use url link
       this.route.params.subscribe(params => {
         this.barcode = params['id'];
 
@@ -45,6 +50,18 @@ export class ProductComponent implements OnInit {
         } else {
           this.loadProduct(); // it works if we directly use the url
           // this.data.getInformationById(this.barcode);
+
+          // Display product information for 30 seconds
+
+          // set the timeout before we direct it to the home component.
+          this.data.timeOut = 30000;
+
+          // clear out the previous timeout id so we don't use it.
+          clearTimeout(this.data.timeOutID);
+
+          setTimeout(() => {
+            this.router.navigate(['']);
+          }, this.data.timeOut);
         }
       });
     } else {
