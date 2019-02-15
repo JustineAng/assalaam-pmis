@@ -1,6 +1,6 @@
 <section class="container-fluid h-100">
     <div class="row h-100">
-      <div *ngIf="mobile" class="px-3 w-100">
+      <div *ngIf="mobile" class="px-3 mt-3 w-100">
         <app-nav></app-nav>
       </div>
 
@@ -35,6 +35,7 @@
             <div class="col-12">
               <p class="mb-0">Identity No.</p>
               <h4>{{ member.identity_no }}</h4>
+              <h4 *ngIf="!member.identity_no">N/A</h4>
             </div>
           </div>
 
@@ -49,6 +50,7 @@
             <div class="col-12">
               <p class="mb-0">Phone</p>
               <h4>{{ member.phone }}</h4>
+              <h4 *ngIf="!member.phone">N/A</h4>
             </div>
           </div>
 
@@ -56,6 +58,7 @@
             <div class="col-12">
               <p class="mb-0">Address</p>
               <h4>{{ member.address }}</h4>
+              <h4 *ngIf="!member.address">N/A</h4>
             </div>
           </div>
         </div>
@@ -79,7 +82,7 @@
         </div>
 
         <div *ngIf="!mobile" id="snackbar" class="show">
-          <h4><countdown [config]="{leftTime: 10}">This Information will Disappear in: <span class="text-danger">$!s!</span> seconds</countdown></h4>
+          <h4 class="m-0"><countdown [config]="{leftTime: 10}">This Information will Disappear in: <span class="text-danger">$!s!</span> seconds</countdown></h4>
         </div>
       </div>
     </div>
