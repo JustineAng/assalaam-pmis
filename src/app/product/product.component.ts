@@ -58,6 +58,7 @@ export class ProductComponent implements OnInit {
 
           // clear out the previous timeout id so we don't use it.
           clearTimeout(this.data.timeOutID);
+
           setTimeout(() => {
             this.router.navigate(['']);
           }, this.data.timeOut);
