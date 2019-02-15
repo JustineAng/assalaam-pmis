@@ -15,12 +15,16 @@ export class HomeComponent implements OnInit {
 
   private assetsFolder = '../assets/img/promos';
   promoImageArray: any;
+  mobile: boolean = false;
 
   constructor(private product: ProductService,
               private member: MemberService,
               private router: Router) { }
 
   ngOnInit() {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
     // this.router.navigate(['product']);
     // const fileSystem = require('file-system');
 

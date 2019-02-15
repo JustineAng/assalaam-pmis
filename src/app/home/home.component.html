@@ -3,6 +3,15 @@
     <app-nav></app-nav>
   </div>
 
+  <div class="row m-0">
+    <h1 *ngIf="mobile" class="display-4 w-100 mt-3 mx-3 text-center">Masukkan Kode Produk atau Kartu Anggota</h1>
+    <h1 *ngIf="!mobile" class="display-4 w-100 m-0 text-center">Pindai Produk atau Kartu Anggota</h1>
+
+    <p class="lead my-0 mx-3 mb-md-4 w-100 text-center">
+      Anda sekarang dapat memeriksa harga produk atau poin Anda kapan saja, di mana saja dengan mudah!
+    </p>
+  </div>
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -31,9 +40,5 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
-
-  <div class="row m-0">
-    <h1 class="display-4 w-100 mt-3 text-center">Scan Product or Member Card</h1>
   </div>
 </section>

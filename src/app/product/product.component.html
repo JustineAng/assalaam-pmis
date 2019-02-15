@@ -11,28 +11,28 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-12">
-            <p class="mb-0">CODE</p>
+            <p class="mb-0">Kode</p>
             <h4>{{ product.product_code }}</h4>
           </div>
         </div>
     
         <div class="row mb-2">
           <div class="col-12">
-            <p class="mb-0">NAME</p>
+            <p class="mb-0">Nama</p>
             <h4>{{ product.product_name }}</h4>
           </div>
         </div>
     
         <div class="row mb-3">
           <div class="col-12">
-            <p class="mb-0">UNIT OF MEASUREMENT</p>
+            <p class="mb-0">Unit Pengukuran</p>
             <h4>{{ product.product_uom }} <small>({{ product.sproduct_conversion }} {{ product.product_minuom }})</small></h4>
           </div>
         </div>
     
         <div class="row">
           <div class="col-12">
-            <h2 class="h-lead mb-0">PRICE</h2>
+            <h2 class="h-lead mb-0">Harga</h2>
             <h1 class="display-5">{{ product.product_price | currency:'IDR ':'symbol':'1.0-0' }}</h1>
           </div>
         </div>
@@ -52,13 +52,13 @@
       <hr>
 
       <!-- Unit of Measurement -->
-      <h5 class="font-weight-bold text-secondary mt-4 mb-2">UNIT OF MEASUREMENT</h5>
+      <h5 class="font-weight-bold text-secondary mt-4 mb-2">UNIT PENGUKURANx</h5>
       <table class="table">
         <thead class="thead-green">
           <tr>
             <th>UOM</th>
-            <th>Conversion</th>
-            <th>Price</th>
+            <th>Konversi</th>
+            <th>Harga</th>
           </tr>
         </thead>
   
@@ -74,15 +74,15 @@
       <hr>
 
       <!-- Discounts -->
-      <h5 class="font-weight-bold text-secondary mt-4 mb-2">PRODUCT DISCOUNT</h5>
+      <h5 class="font-weight-bold text-secondary mt-4 mb-2">DISKON PRODUK</h5>
       <table class="table">
         <thead class="thead-green">
           <tr>
-            <th class="d-none d-md-table-cell">Barcode</th>
+            <th class="d-none d-md-table-cell">Kode Batang</th>
             <th>UOM</th>
             <th>Qty. From</th>
             <th>Qty. To</th>
-            <th>Price</th>
+            <th>Harga</th>
           </tr>
         </thead>
 
