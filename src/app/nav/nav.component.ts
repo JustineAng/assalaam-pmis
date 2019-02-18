@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
    * @var string
    */
   appTitle: string = 'ASSALAAM HYPERMARKET';
-
+  mobile: boolean = false;
   /*
    | Barcode Regex
    |
@@ -48,7 +48,11 @@ export class NavComponent implements OnInit {
               private data: DataService,
               private http: HttpClient) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
+  }
 
   /**
    * Search Input Code
