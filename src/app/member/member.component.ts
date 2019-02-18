@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Member, DataService } from '../data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CountdownModule } from 'ngx-countdown';
 
 @Component({
   selector: 'app-member',
@@ -13,6 +14,7 @@ export class MemberComponent implements OnInit {
   member: Member;
   barcode: string;
   mobile: boolean = false;
+  time: number;
   API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetMember/';
 
   constructor(private router: Router, private data: DataService, private route: ActivatedRoute, private http: HttpClient) {
@@ -37,6 +39,7 @@ export class MemberComponent implements OnInit {
 
       // set the timeout before we direct it to the home component.
       this.data.timeOut = 10000;
+      this.time = this.data.timeOut / 1000;
 
       this.data.timeOutID = setTimeout(() => {
         this.router.navigate(['']);
