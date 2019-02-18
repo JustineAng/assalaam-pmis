@@ -27,14 +27,14 @@ export class NavComponent implements OnInit {
    * @var string
    */
   appTitle: string = 'ASSALAAM HYPERMARKET';
-
+  mobile: boolean = false;
   /*
    | Barcode Regex
    |
    | Ensures that the barcode we are scanning is only numeric charcaters
    | with no limit on its length.
    */
-  private BARCODE_REGEX: RegExp = /^\*\d+$|^\d+$/;
+  private BARCODE_REGEX: RegExp = /^\*\d+$|^\d+$|^\*\w+|^\w+/;
 
   /**
    * NavComponent class constructor.
@@ -48,7 +48,11 @@ export class NavComponent implements OnInit {
               private data: DataService,
               private http: HttpClient) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.mobile = true;
+    }
+  }
 
   /**
    * Search Input Code
@@ -101,5 +105,9 @@ export class NavComponent implements OnInit {
         event.target.value = '';
       }
     }
+  }
+
+  routeToScanner() {
+    this.router.navigate(['scanner']);
   }
 }

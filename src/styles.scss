@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+$ionicons-font-path: "~ionicons/dist/fonts";
+@import "~ionicons/dist/scss/ionicons.scss";
+
+
 html, body {
   height: 100vh !important;
   margin: 0 auto;

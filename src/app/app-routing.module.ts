@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ProductComponent } from './product/product.component';
 import { MemberComponent } from './member/member.component';
 import { MissingComponent } from './missing/missing.component';
+import { ScannerComponent } from './scanner/scanner.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductComponent, data: {json: null} },
   { path: 'member', component: MemberComponent },
   { path: 'member/:id', component: MemberComponent },
-  { path: 'missing', component: MissingComponent }
+  { path: 'missing', component: MissingComponent },
+  { path: 'scanner', component: ScannerComponent }
 ];
 
 @NgModule({
