@@ -1,5 +1,5 @@
 <section class="container-fluid h-100">
-    <div class="row h-100">
+    <div class="row d-flex h-100 mh-100">
       <div *ngIf="mobile" class="px-3 mt-3 w-100">
         <app-nav></app-nav>
       </div>
@@ -64,7 +64,7 @@
         </div>
       </aside>
   
-      <div class="col py-3">
+      <div class="col py-3 h-100 mh-100">
         <!-- Header -->
         <app-nav *ngIf="!mobile"></app-nav>
 
@@ -81,9 +81,13 @@
           <h1 class="display-1 text-center text-primary mb-0">{{ member.coupon }} COUPONS</h1>
         </div>
 
-        <div *ngIf="!mobile" id="snackbar" class="show">
-          <h4 class="m-0"><countdown [config]="{leftTime: 10}">Informasi ini akan Hilang dalam: <span class="text-danger">$!s!</span> detik...</countdown></h4>
+        <div class="alert alert-danger text-center shadow-sm align-self-end">
+          <p class="lead m-0 p-0">For your security, this information will be reset <strong>after 10 seconds</strong>.</p>
         </div>
+
+        <!-- <div *ngIf="!mobile" id="snackbar" class="show">
+          <h4 class="m-0"><countdown [config]="{leftTime: time}">Informasi ini akan Hilang dalam: <span class="text-danger">$!s!</span> detik...</countdown></h4>
+        </div> -->
       </div>
     </div>
   </section>
