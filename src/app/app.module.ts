@@ -17,6 +17,7 @@ import { MemberComponent } from './member/member.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { TimerDirective } from './timer.directive';
 import { MissingComponent } from './missing/missing.component';
+import { ScannerComponent } from './scanner/scanner.component';
 
 registerLocaleData(localeId, 'id');
 
@@ -31,7 +32,8 @@ registerLocaleData(localeId, 'id');
     MemberComponent,
     AutofocusDirective,
     TimerDirective,
-    MissingComponent
+    MissingComponent,
+    ScannerComponent
   ],
   imports: [
     BrowserModule,

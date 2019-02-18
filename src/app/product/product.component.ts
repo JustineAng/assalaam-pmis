@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
   _json: any;
   barcode: string;
   mobile: boolean = false;
-  API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetProduct/';
+  private API_URL: string = 'http://192.168.0.62:8082/datasnap/rest/TPublicAPI/GetProduct/';
 
   constructor(private router: Router, private data: DataService, private route: ActivatedRoute, private http: HttpClient)  {
     this.product = new Product();
@@ -55,7 +55,7 @@ export class ProductComponent implements OnInit {
 
           // set the timeout before we direct it to the home component.
           this.data.timeOut = 30000;
-          
+
           this.data.timeOutID = setTimeout(() => {
             this.router.navigate(['']);
           }, this.data.timeOut);
