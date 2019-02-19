@@ -1,0 +1,24 @@
+$break-small: 640px;
+
+canvas.drawing,
+canvas.drawingBuffer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#interactive.viewport {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+#interactive.viewport {
+  position: relative;
+}
+
+#interactive.viewport > video {
+  position: static;
+  max-width: 100%;
+  width: 100%;
+}

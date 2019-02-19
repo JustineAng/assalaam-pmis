@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@types/node": "^8.9.5",
     "core-js": "^2.5.4",
     "file-system": "^2.2.2",
     "quagga": "^0.12.1",

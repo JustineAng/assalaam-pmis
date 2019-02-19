@@ -4,7 +4,7 @@
  * Contains interfaces about the product that can be implemented
  * by other objects.
  */
-namespace ProductAPIModel {
+declare namespace ProductAPIModel {
 
   /**
    * Interface IUom

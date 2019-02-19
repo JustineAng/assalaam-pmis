@@ -4,7 +4,7 @@
  * Contains concrete classes that implements all the product related
  * interfaces from the namespace `ProductAPIModel`.
  */
-namespace ProductAPIObject {
+declare namespace ProductAPIObject {
 
   /**
    * Class Product

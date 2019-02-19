@@ -19,23 +19,45 @@ export class ScannerComponent implements OnInit {
     inputStream: {
       name: 'Live',
       type: 'LiveStream',
-      target: '#inputBarcode',
+      // target: document.querySelector('#inputBarcode'),
       constraints: {
-        width: { min: 640 },
-        height: { min: 480 },
+        // width: { min: 640 },
+        // height: { min: 480 },
         aspectRatio: { min: 1, max: 100 },
         facingMode: 'environment'
       },
       singleChannel: false
     },
+    tracking: false,
+    debug: false,
+    controls: false,
+    locate: true,
+    numOfWorkers: navigator.hardwareConcurrency,
+    visual: {
+      show: true
+    },
     locator: {
       patchSize: 'medium',
-      halfSample: true
+      halfSample: true,
+      showCanvas: false,
+      showPatches: false,
+      showFoundPatches: false,
+      showSkeleton: false,
+      showLabels: false,
+      showPatchLabels: false,
+      showRemainingPatchLabels: false,
+      boxFromPatches: {
+        showTransformed: false,
+        showTransformedBox: false,
+        showBB: false
+      }
     },
-    locate: true,
-    numOfWorkers: 4,
     decoder: {
-      readers: ['upc_reader', 'ean_reader', 'code_128_reader']
+      readers: ['code_128_reader', 'ean_reader', 'upc_reader'],
+      drawBoundingBox: false,
+      showFrequency: false,
+      drawScanline: true,
+      showPattern: false,
     }
   };
 
@@ -74,11 +96,11 @@ export class ScannerComponent implements OnInit {
 
     if (result) {
       if (result.boxes) {
-        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width'), 10), parseInt(drawingCanvas.getAttribute('height'), 10));
+        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width')), parseInt(drawingCanvas.getAttribute('height')));
         result.boxes.filter(function (box) {
           return box !== result.box;
         }).forEach(function (box) {
-          Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: 'green', lineWidth: 2 });
+          Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: 'green', lineWidth: 3 });
         });
       }
 
