@@ -1,0 +1,14 @@
+[
+  {
+    "image_name": "001.jpg" ,
+    "promo_valid": true
+  },
+  {
+    "image_name": "002.jpg" ,
+    "promo_valid": true
+  },
+  {
+    "image_name": "003.jpg" ,
+    "promo_valid": true
+  }
+]

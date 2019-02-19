@@ -61,4 +61,9 @@ declare namespace ProductAPIObject {
     barcode: string;
     uom: string;
   }
+
+  export class Promo implements ProductAPIModel.IProductPromo {
+    full_path: string;
+    img: string;
+  }
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { ProductService } from '../product.service';
 import { MemberService } from '../member.service';
-// import { AboutComponent } from '../about/about.component';
-// import * as fs from 'file-system';
+
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,32 +16,47 @@ import { MemberService } from '../member.service';
 export class HomeComponent implements OnInit {
 
   private assetsFolder = '../assets/img/promos';
-  promoImageArray: any;
+  promos: Array<ProductAPIObject.Promo>;
   mobile: boolean = false;
 
-  constructor(private product: ProductService,
-              private member: MemberService,
-              private router: Router) { }
+  constructor(private product: ProductService, private member: MemberService,
+              private router: Router, private data: DataService, private http: HttpClient) { }
 
   ngOnInit() {
     if (window.screen.width <= 768) { // 768px portrait
       this.mobile = true;
     }
 
-    // this.router.navigate(['product']);
-    // const fileSystem = require('fs');
-
-    // fileSystem.readdir(this.assetsFolder,(error, files) => {
-    //   files.forEach(file => {
-    //     this.promoImageArray.push(file);
-    //   });
+    // this.http.get('http://192.168.0.36/api/GetProductPromo.php').subscribe(json => {
+    //   if (json === null) {
+    //     console.log('JSON is null');
+    //   } else {
+    //     this.promos = <Array<ProductAPIObject.Product_promos>> json;
+    //     console.log(this.promos); // 1, "string", false
+    //   }
     // });
 
-    // // fs.readdir(this.assetsFolder, (error, files) => {
-    // //   files.forEach(file => {
-    // //     this.promoImageArray.push(file);
-    // //   });
-    // // });
+    this.http.get('http://127.0.0.1/assalaam/api/promos').subscribe(json => {
+      if (json === null) {
+        console.log('JSON is null');
+      } else {
+        // console.log(json);
+          this.promos = <Array<ProductAPIObject.Promo>>json;
+          console.log(this.promos);
+      }
+    });
+  }
+
+  loadPromoImages() {
+    this.http.get('http://127.0.0.1/assalaam/api/promos').subscribe(json => {
+      if (json === null) {
+        console.log('JSON is null');
+      } else {
+        // console.log(json);
+          this.promos = <Array<ProductAPIObject.Promo>>json;
+          console.log(this.promos);
+      }
+    });
   }
 
   searchInputCode(event: any) {

@@ -53,4 +53,9 @@ declare namespace ProductAPIModel {
     barcode: string;
     uom: string;
   }
+
+  export interface IProductPromo {
+    full_path: string;
+    img: string;
+  }
 }
