@@ -50,6 +50,12 @@ h-lead, h2.h-lead {
   word-spacing: .20rem
 }
 
+canvas.drawingBuffer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;

@@ -36,27 +36,15 @@ export class HomeComponent implements OnInit {
     //   }
     // });
 
-    this.http.get('http://127.0.0.1/assalaam/api/promos').subscribe(json => {
-      if (json === null) {
-        console.log('JSON is null');
-      } else {
-        // console.log(json);
-          this.promos = <Array<ProductAPIObject.Promo>>json;
-          console.log(this.promos);
-      }
-    });
-  }
-
-  loadPromoImages() {
-    this.http.get('http://127.0.0.1/assalaam/api/promos').subscribe(json => {
-      if (json === null) {
-        console.log('JSON is null');
-      } else {
-        // console.log(json);
-          this.promos = <Array<ProductAPIObject.Promo>>json;
-          console.log(this.promos);
-      }
-    });
+    // this.http.get('http://assalaam/GetPromos.php').subscribe(json => {
+    //   if (json === null) {
+    //     console.log('JSON is null');
+    //   } else {
+    //     // console.log(json);
+    //       this.promos = <Array<ProductAPIObject.Promo>>json;
+    //       console.log(this.promos);
+    //   }
+    // });
   }
 
   searchInputCode(event: any) {

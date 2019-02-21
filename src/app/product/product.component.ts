@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit {
   }
 
   loadProduct() {
-    this.http.get(this.API_URL + this.barcode).subscribe(json => {
+    this.http.get(this.data.PRODUCT_API_URL + this.barcode).subscribe(json => {
       // console.log(this.barcode);
 
       if (json === null) {

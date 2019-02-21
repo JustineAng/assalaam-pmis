@@ -48,7 +48,7 @@ export class MemberComponent implements OnInit {
   }
 
   loadMember() {
-    this.http.get(this.API_URL + this.barcode).subscribe(json => {
+    this.http.get(this.data.MEMBER_API_URL + this.barcode).subscribe(json => {
       // console.log(this.barcode);
 
       if (json === null) {
